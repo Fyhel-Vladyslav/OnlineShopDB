@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Q5O0Ucrc63vPP2kUi8OVyqt5MFTLRhbsxhHEQP9RYVqG3S3k9fkmUKWs5FQQ2hlhAUIsIfiLvniPAEh7X+25Q==",
+  "dgSpecHash": "sYfo8TTqF2kTfvlV8HEk5pqsCG4mhh2tpmLID1nB/YBiYC2al8KV1G97w8jydRJPWZeDL22EIOkyLuRZSCnQDQ==",
   "success": true,
-  "projectFilePath": "D:\\vodnik\\2 курс\\курсова\\GitHub\\ShopWithDB\\ShopWithDB\\OnlineShop\\OnlineShop.csproj",
+  "projectFilePath": "D:\\vodnik\\2 курс\\курсова\\GitHub\\OnlineShopDB\\OnlineShop\\OnlineShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",

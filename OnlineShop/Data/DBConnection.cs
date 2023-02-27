@@ -37,7 +37,7 @@ namespace OnlineShop.Data
                 {
                     if (allItems != null)
                         return allItems;
-                    allItems = GetItemsByCategoryFromDB();
+                    allItems = GetItemsFromDB();
                     return allItems;
                 }
             }
@@ -49,18 +49,24 @@ namespace OnlineShop.Data
 
             public IEnumerable<Item> getCategoryItems(int categoryId)
             {
-                allItems = GetItemsByCategoryFromDB(categoryId);
+                allItems = GetItemsFromDB(categoryId);
                 return allItems;
             }
 
             public Item getObjectItem(int itemId)
             {
-                allItems = GetItemsByCategoryFromDB(0,itemId);
-                return allItems.First();
+                Item item=new Item();
+                if (allItems!=null)
+                 item = allItems.Where(c => c.id == itemId).First();
+                if(item.id==0)
+                    item = GetItemsFromDB(0,itemId).FirstOrDefault();
+
+                return item;
+
             }
 
 
-            private List<Item> GetItemsByCategoryFromDB( int categoryId =0 ,int itemId=0)
+            private List<Item> GetItemsFromDB( int categoryId =0 ,int itemId=-1)
             {
                 using (SqlConnection connection = new SqlConnection(config.GetConnectionString("ItemsConnection")))
                 {
@@ -69,7 +75,7 @@ namespace OnlineShop.Data
                     allItems.Clear();
                     SqlCommand com = new SqlCommand();
                     com.Connection = connection;
-                    if (itemId != -1)
+                    if (categoryId != 0)
                     {
                         if (categoryId != 0)
                             com.CommandText = $"select * from Items WHERE categoryID = {categoryId}";
@@ -77,7 +83,7 @@ namespace OnlineShop.Data
                             com.CommandText = $"select * from Items";
                     }
                     else                    
-                        com.CommandText = $"select from Items WHERE id = {itemId}";
+                        com.CommandText = $"select * from Items WHERE id = {itemId}";
                     
                     SqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())

@@ -169,3 +169,4 @@ D:\vodnik\2 курс\курсова\GitHub\OnlineShopDB\OnlineShop\obj\Debug\net
 D:\vodnik\2 курс\курсова\GitHub\OnlineShopDB\OnlineShop\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
 D:\vodnik\2 курс\курсова\GitHub\OnlineShopDB\OnlineShop\obj\Debug\net5.0\Razor\Views\Item\Index.cshtml.g.cs
 D:\vodnik\2 курс\курсова\GitHub\OnlineShopDB\OnlineShop\obj\Debug\net5.0\Razor\Views\SimpleItem\Index.cshtml.g.cs
+D:\vodnik\2 курс\курсова\GitHub\OnlineShopDB\OnlineShop\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs

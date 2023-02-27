@@ -1,0 +1,23 @@
+﻿@model List<CartLine>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Item.name</td>
+                <td>@item.Item.price</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Item.price * item.Quantity)</td>
+            </tr>
+        }
+    </tbody>
+</table>

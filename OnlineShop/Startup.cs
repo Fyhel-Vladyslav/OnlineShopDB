@@ -38,6 +38,7 @@ namespace OnlineShop
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +56,8 @@ namespace OnlineShop
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseRouting();

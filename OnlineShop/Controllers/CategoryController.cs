@@ -10,9 +10,15 @@ namespace OnlineShop.Controllers
     public class CategoryController : Controller
     {
         private readonly IAllCategories _allCategories;
+
+        public CategoryController(IAllCategories iItemsCategory)
+        {
+            _allCategories = iItemsCategory;
+        }
         public IActionResult Index()
         {
-            return View();
+            var categories = _allCategories.AllCategories;
+            return View(categories);
         }
     }
 }

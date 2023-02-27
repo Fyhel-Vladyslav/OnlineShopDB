@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Controllers
 {
-    public class ItemController : Controller
+    public class SimpleItemController : Controller
     {
         private readonly IAllItems _allItems;
-
-        public ItemController(IAllItems iAllItems)
+        public SimpleItemController(IAllItems iAllItems)
         {
             _allItems = iAllItems;
+
         }
-        public ViewResult Index(int id)
+
+        public IActionResult Index(int id = 0)
         {
-            var items = _allItems.getCategoryItems(id);
-            return View(items);
+            return View(_allItems.getObjectItem(id));
         }
     }
 }

@@ -1,0 +1,55 @@
+﻿@using OnlineShop.Models;
+@model IEnumerable<Item>
+
+<ul>
+    @{ foreach (var item in Model)
+        {
+            <li class="item-wrapper">
+                <a href="/SimpleItem/Index/@item.id" class="item">
+                    <div class="inner-item">
+                        <div class="item_img">
+                            <img src="~/images/boiler.jpg" alt="">
+                        </div>
+                        <div class="item_info">
+                            <div class="item_name"><b>@item.name</b>	</div>
+
+                            <div class="short_desk">
+                                <b>@item.shortDesc</b>
+                            </div>
+                            <div class="price_info">
+                                <div class="stars">
+                                    <div class="rate_background">
+                                        ★★★★★
+                                        <div class="rate_bar">
+                                            @{
+                                                for (int i = 0; i < (@item.rating); i++)
+                                                {<div class="simple_star">★</div> }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cost_word">ціна :</div>
+                                <div class="cost">@item.price</div>
+                            </div>
+                        </div>
+                        <div class="item_buttons">
+
+                            <button class="buy-btn btn">
+                                <b>Купити</b>
+                            </button>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox_input_heart">
+                                <span class="check_box_heart"></span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox_input_cart">
+                                <span class="check_box_cart"></span>
+                            </label>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+    }
+
+</ul>

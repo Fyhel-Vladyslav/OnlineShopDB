@@ -7,6 +7,7 @@ namespace OnlineShop.Models
 {
     public class Item
     {
+        public Item() { }
         public Item(int _id, string _name, string _shortDesc, string _longDesc, string _img, double _price, bool _isFavourite, int _availiable, int _categoryID, int _rating)
         {
             id = _id;

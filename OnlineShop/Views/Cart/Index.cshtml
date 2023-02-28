@@ -1,5 +1,16 @@
 ﻿@model List<CartLine>
 
+@{
+    double Total()
+    {
+        double total = 0;
+        foreach (var item in Model)
+            total += (item.Item.price * item.Quantity);
+        return total;
+    }
+}
+@*<link type="text/css" rel="stylesheet" href="~/css/cart.css"/>*@
+<script>src = "~/js/cart.js"</script>
 <table class="table">
     <thead>
         <tr>
@@ -15,9 +26,14 @@
             <tr>
                 <td>@item.Item.name</td>
                 <td>@item.Item.price</td>
-                <td>@item.Quantity</td>
+                <td><input type="button" onclick="/Cart/AddToCart/@item.Item.id" value="-" />@item.Quantity<input type="button" href="/Cart/AddToCart/@item.Item.id" value="+" /></td>
                 <td>@(item.Item.price * item.Quantity)</td>
             </tr>
         }
     </tbody>
 </table>
+<div>
+    Total: @(Total())
+</div>
+
+

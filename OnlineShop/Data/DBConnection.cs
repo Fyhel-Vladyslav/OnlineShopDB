@@ -55,14 +55,11 @@ namespace OnlineShop.Data
 
             public Item getObjectItem(int itemId)
             {
-                Item item=new Item();
-                if (allItems!=null)
-                 item = allItems.Where(c => c.id == itemId).First();
-                if(item.id==0)
-                    item = GetItemsFromDB(0,itemId).FirstOrDefault();
-
+                List<Item> items = GetItemsFromDB(0, itemId);
+                Item item = items.FirstOrDefault();
                 return item;
 
+                //return GetItemsFromDB(0, itemId).First();
             }
 
 
@@ -88,7 +85,7 @@ namespace OnlineShop.Data
                     SqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
-                        allItems.Add(new Item((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], "", (double)reader[5], Convert.ToBoolean((byte)reader[6]), ((int)reader[7]), categoryId, ((int)reader[9])));
+                        allItems.Add(new Item((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], "", (double)reader[5], Convert.ToBoolean((byte)reader[6]), ((int)reader[7]), ((int)reader[8]), ((int)reader[9])));
                     }
 
                     connection.Close();

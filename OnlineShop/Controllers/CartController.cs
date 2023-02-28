@@ -26,16 +26,30 @@ namespace OnlineShop.Controllers
         }
 
 
+
         public EmptyResult AddToCart(int id)
         {
             int amount = 1;
             var cart = GetCart();
             var cartItem = new CartLine();
+            //cartItem.Item = _allItems.getObjectItem(id);
+            //cartItem.Quantity = amount;
 
-            cartItem.Item = _allItems.getObjectItem(id);
-            cartItem.Quantity = amount;
 
-            cart.Add(cartItem);
+            cartItem = cart.Where(c => c.Item.id == id).FirstOrDefault();
+
+            if (cartItem != null)
+            {
+                cartItem.Quantity++;
+            }
+            else
+            {
+                cartItem = new CartLine();
+                cartItem.Item = _allItems.getObjectItem(id);
+                cartItem.Quantity = 1;
+                cart.Add(cartItem);
+            }
+
             HttpContext.Session.SetObjectAsJson("cart", cart);
                 return new EmptyResult();
         }
